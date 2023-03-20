@@ -1,10 +1,23 @@
-/**
-* @description:
-* @author
-* @date 2023-03-20 10:08:36
-* @version 1.0 
-*
-* Change Logs:
-* Date           Author       Notes
-*
-*/ 
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(express.json());
+
+app.use(cors({
+    credentials: true,
+    origin: 'http://127.0.0.1:5173',
+}));
+
+app.get('/test', (req, res) => {
+    res.json('test ok');
+});
+
+// WPLoGZVLeuO5m6C0
+
+app.post('/register', (req, res) => {
+    const {name, email, password} = req.body;
+    res.json({name, email, password});
+})
+
+app.listen(4000);
