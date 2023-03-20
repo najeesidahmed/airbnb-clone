@@ -12,8 +12,8 @@ export default function LoginPage() {
     async function handleLogin(e){
         e.preventDefault();
         try {
-            const userInfo = await axios.post('/login', {email,password});
-            setUser(userInfo);
+            const {data} = await axios.post('/login', {email,password});
+            setUser(data);
             alert('Login successful')
             setRedirect(true);
         } catch (error) {
